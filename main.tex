@@ -1,0 +1,135 @@
+% ============================================================
+%  main.tex — Contenido del CV
+%  Edita aquí tus datos. El diseño vive en packages.tex
+% ============================================================
+\documentclass[10.5pt]{article}
+\input{packages}
+
+\begin{document}
+
+% ----------------- CABECERA -----------------
+\begin{minipage}[c]{0.70\textwidth}
+  \cvname{Nicolás Rey Alonso}
+  \cvrole{Estudiante de Ingeniería Informática \,\textbar\, Diseño gráfico}
+
+  \vspace{10pt}
+  \cvcontact{\faEnvelope}{\href{mailto:nicolasreyalonso@gmail.com}{nicolasreyalonso@gmail.com}}\cvsep
+  \cvcontact{\faPhone}{690 372 758}\cvsep
+  \cvcontact{\faMapMarker}{Las Palmas de Gran Canaria}\par
+  \vspace{5pt}
+  \cvcontact{\faGithub}{\href{https://github.com/NicolasReyAlonso/}{github.com/NicolasReyAlonso}}\cvsep
+  \cvcontact{\faLinkedin}{\href{https://es.linkedin.com/in/nicol\%C3\%A1s-rey-alonso-3a554018a}{Nicolás Rey Alonso}}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.26\textwidth}
+  \raggedleft
+  \cvphoto{imagenes/fotomia.jpeg}
+\end{minipage}
+
+\vspace{4pt}
+
+% ----------------- DOS COLUMNAS -----------------
+\columnratio{0.63}
+\setlength{\columnsep}{22pt}
+\begin{paracol}{2}
+
+% ================= COLUMNA PRINCIPAL =================
+\cvsection{Perfil}
+Estudiante de Ingeniería Informática en la ULPGC, en la fase final de la
+carrera (pendiente únicamente del TFG). Perfil híbrido entre desarrollo y
+diseño: experiencia profesional creando frameworks e interfaces gráficas,
+conocimientos avanzados de administración de sistemas y bases de datos, y
+dominio del diseño gráfico. Inglés fluido. Me motivan especialmente la
+investigación y el desarrollo.
+
+\cvsection{Experiencia}
+\cventry{2025 -- actualidad}
+        {Ingeniero de software (estudiante en prácticas)}
+        {ITC — Instituto Tecnológico de Canarias, Las Palmas de Gran Canaria}
+        {\begin{itemize}
+          \item \textbf{Librerización de una interfaz gráfica:} refactoricé
+                los componentes de una aplicación Angular en componentes
+                abstractos y reutilizables de GUI, convirtiendo la base del
+                proyecto original en una librería reutilizable.
+          \item \textbf{Creación de un framework full-stack} (proyecto
+                desarrollado como TFG con el ITC): backend y frontend para
+                el desarrollo rápido de aplicaciones, con Python (FastAPI,
+                SQLAlchemy) y Angular, contenedorizado con Docker.
+        \end{itemize}}
+
+\cventry{2019}
+        {Diseñador gráfico}
+        {Startup en fase inicial, Las Palmas de Gran Canaria}
+        {Diseñé la interfaz gráfica, la iconografía y la identidad visual
+        del prototipo de una aplicación de reparto a domicilio (tipo
+        Glovo).}
+
+\cvsection{Formación}
+\cventry{finalización prevista: 2026}
+        {Grado en Ingeniería Informática}
+        {ULPGC — Universidad de Las Palmas de Gran Canaria}
+        {Pendiente únicamente del TFG, en curso en colaboración con el
+        ITC (véase Experiencia).}
+
+\cventry{2014 -- 2016}
+        {Bachillerato de Ciencias}
+        {IES Felo Monzón Grau-Bassas, Las Palmas de Gran Canaria}
+        {\relax}
+
+% ================= COLUMNA LATERAL =================
+\switchcolumn
+
+\cvsection{Habilidades}
+{\small\bfseries\color{soft}DISEÑO}\par\nopagebreak
+\vspace{\dimexpr 2pt-\parskip\relax}
+\begin{cvtags}
+\cvtag{Photoshop}
+\cvtag{Illustrator}
+\cvtag{Figma}
+\cvtag{Krita}
+\cvtag{Inkscape}
+\cvtag{Blender (3D)}
+\cvtag{KiCad (PCB)}
+\cvtag{Identidad visual}
+\end{cvtags}
+
+\vspace{6pt}
+{\small\bfseries\color{soft}DESARROLLO}\par\nopagebreak
+\vspace{\dimexpr 2pt-\parskip\relax}
+\begin{cvtags}
+\cvtag{Python}
+\cvtag{FastAPI}
+\cvtag{SQLAlchemy}
+\cvtag{Angular}
+\cvtag{React}
+\cvtag{React Native}
+\cvtag{JavaScript}
+\cvtag{C}
+\cvtag{Java}
+\cvtag{Swift}
+\cvtag{PostgreSQL}
+\cvtag{Docker}
+\cvtag{Git}
+\cvtag{UML}
+\cvtag{Admin.\ de sistemas}
+\end{cvtags}
+
+\cvsection{Idiomas}
+\cvlang{Español — nativo}{5}
+\cvlang{Inglés — fluido}{4}
+\cvlang{Alemán — básico}{2}
+
+\cvsection{Aptitudes}
+\begin{itemize}
+  \item Resolutivo y de aprendizaje rápido
+  \item Trabajo en equipo
+  \item Interés constante por aprender
+  \item Creatividad y criterio visual
+  \item Atención al detalle
+\end{itemize}
+
+% \cvsection{Certificados}
+% \cventry{<<Año>>}{<<Nombre del certificado>>}{<<Entidad>>}{\relax}
+
+\end{paracol}
+
+\end{document}

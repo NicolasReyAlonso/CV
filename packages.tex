@@ -1,0 +1,107 @@
+% ============================================================
+%  packages.tex — Configuración y estilo del CV
+%  (No hace falta tocar este archivo para editar el contenido)
+% ============================================================
+
+% --- Página y tipografía --------------------------------------
+\usepackage[a4paper, top=1.4cm, bottom=1.4cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[default]{lato}          % Sans-serif moderna y legible
+\usepackage{parskip}                % Sin sangrías, espacio entre párrafos
+\setlength{\parskip}{6pt}
+\usepackage{microtype}
+
+% --- Color, iconos y utilidades -------------------------------
+\usepackage{xcolor}
+\usepackage{graphicx}               % Foto
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{paracol}                % Layout a dos columnas
+\usepackage{tikz}                   % Puntos de nivel de idiomas
+\usepackage[colorlinks=true, urlcolor=accent, linkcolor=accent]{hyperref}
+
+% --- Paleta ----------------------------------------------------
+% Acento: azul petróleo — formal pero con carácter.
+% Si quieres otro tono, cambia solo estas líneas.
+\definecolor{accent}{HTML}{0E6BA8}      % Azul petróleo
+\definecolor{accentdark}{HTML}{084B7A}  % Variante oscura (nombre, títulos)
+\definecolor{accentlight}{HTML}{E3F0F8} % Fondo de las etiquetas de habilidades
+\definecolor{body}{HTML}{3A3F45}        % Gris oscuro para el texto
+\definecolor{soft}{HTML}{707880}        % Gris medio para fechas y detalles
+
+\color{body}
+
+% --- Cabecera ---------------------------------------------------
+% \cvname{Nombre}  \cvrole{Titular profesional}
+\newcommand{\cvname}[1]{{\fontsize{28}{32}\selectfont\bfseries\color{accentdark}#1\par}}
+\newcommand{\cvrole}[1]{\vspace{2pt}{\large\color{accent}#1\par}}
+
+% Foto circular con borde de acento: \cvphoto{ruta}
+\newcommand{\cvphoto}[1]{%
+  \begin{tikzpicture}
+    \begin{scope}
+      \clip (0,0) circle (1.6cm);
+      \node at (0,-0.12) {\includegraphics[width=3.4cm]{#1}};
+    \end{scope}
+    \draw[accent, line width=1.6pt] (0,0) circle (1.6cm);
+  \end{tikzpicture}%
+}
+
+% Línea de contacto: \cvcontact{icono}{texto}
+\newcommand{\cvcontact}[2]{{\color{accent}#1}\hspace{5pt}{\small #2}}
+\newcommand{\cvsep}{\hspace{9pt}{\color{soft}\textbar}\hspace{9pt}}
+
+% --- Títulos de sección -----------------------------------------
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}%
+  {\large\bfseries\color{accentdark}\MakeUppercase{#1}}\par\nopagebreak
+  \vspace{\dimexpr 1pt-\parskip\relax}%
+  {\color{accent}\rule{28pt}{2.4pt}}{\color{accentlight}\rule{\dimexpr\linewidth-28pt\relax}{2.4pt}}\par\nopagebreak
+  \vspace{\dimexpr 2pt-\parskip\relax}%
+}
+
+% --- Entradas (formación / experiencia) --------------------------
+% \cventry{Fechas}{Título}{Lugar / institución}{Descripción (opcional)}
+\newcommand{\cventry}[4]{%
+  {\bfseries #2}\hfill{\small\color{soft}#1}\par\nopagebreak
+  \vspace{\dimexpr 1pt-\parskip\relax}%
+  {\color{accent}\small #3}\par
+  \ifx\relax#4\relax\else
+    \vspace{\dimexpr 1pt-\parskip\relax}%
+    {\small #4\par}%
+  \fi
+  \vspace{3pt}%
+}
+
+% --- Etiquetas de habilidades ("pastillas") ----------------------
+% Envuelve los grupos de \cvtag en el entorno cvtags para que las
+% etiquetas salten de línea sin salirse del margen.
+\newenvironment{cvtags}{\raggedright}{\par}
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline=(txt.base)]{
+    \node[fill=accentlight, text=accentdark, rounded corners=3pt,
+          inner xsep=7pt, inner ysep=4pt, font=\small] (txt) {#1};
+  }\hspace{1pt}\vspace{3pt}
+}
+
+% --- Nivel de idioma con puntos ----------------------------------
+% \cvlang{Idioma}{nivel de 0 a 5}
+\newcommand{\cvlang}[2]{%
+  #1\hfill
+  \tikz[baseline=-2.5pt]{
+    \foreach \i in {1,...,5}{
+      \ifnum\i>#2
+        \fill[accentlight] (\i*0.3, 0) circle (0.085);
+      \else
+        \fill[accent] (\i*0.3, 0) circle (0.085);
+      \fi
+    }
+  }\par\vspace{4pt}%
+}
+
+% --- Listas compactas --------------------------------------------
+\setlist[itemize]{leftmargin=12pt, itemsep=2pt, topsep=2pt, label={\color{accent}\small\textbullet}}
+
+\pagestyle{empty}
